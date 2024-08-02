@@ -76,24 +76,73 @@ const storeItems = [
     },
 ];
 
-// light = CHtheme;
-
 let light = true;
 
+//change theme, executes when you click the toggle button
 function CHtheme(){
-
+//if theme is light, change to dark
     if(light === true){
+
         light = false;
-        $("body").each(function(){
-            $(this).css("background-color", "#2b2b2b");
-        }); 
-    // $("body").each(function(){
-        // $(this).css("background-color", "#2b2b2b");
-    // });
-    } else {
-        light = true;
-        $("body").each(function(){
-                $(this).css("background-color", "#eeeeee")
+
+        $("body").css("background-color", "#2b2b2b");
+        
+        $(".rowItem").each(function(){
+            $(this).css("background-color", "#424242");
+            $(this).css("box-shadow", "2px 2px 4px rgba(255, 255, 255, 0.5)");
+            $(this).css("color", "white");
         });
+        $("#button").css("background-color", "#2b2b2b");
+        $("#button").css("color", "white");
+        $(".page-title").css("color", "white");
+        $(".line").css("color", "white");
+
+//change theme executes when you click the toggle button
+    } else {
+//changes from dark to light, which can be repeated over and over again
+        light = true;
+
+        $("body").css("background-color", "#eee");
+
+        $(".rowItem").each(function(){
+            $(this).css("background-color", "#fff");
+            $(this).css("box-shadow", "2px 2px 4px rgba(0, 0, 0, 0.5)");
+            $(this).css("color", "black");
+        });
+        $("#button").css("background-color", "#eee");
+        $("#button").css("color", "black");
+        $(".page-title").css("color", "black");
+        $(".line").css("color", "black");
+
     }
 }
+
+function popPage(){
+    document.open();
+
+    document.write("<div class=\"box\">");
+
+    for(i = 0 ; i < storeItems.length ; i++ ){
+        if(storeItems[i].inStock === true){
+            document.write("<div class=\"rowItem\">");
+            document.write("<div>");
+            document.write(storeItems[i].price);
+            document.write("</div>");
+            document.write("<div>");
+            document.write(storeItems[i].name);
+            document.write("</div>");
+            document.write("<div>");
+            document.write(storeItems[i].details);
+            document.write("</div>");
+            document.write("</div>");
+        }
+    }
+
+    document.write("</div>");
+
+    document.close();
+}
+
+// document.write(storeItems[i].name);
+
+// document.write(storeItems[i].price);
