@@ -116,12 +116,13 @@ function CHtheme(){
 
     }
 }
-
+//pop page allows the content from the const variable to be displayed without being typed out by hand in html
 function popPage(){
     document.open();
-
+//creates the box containers for the words
     document.write("<div class=\"box\">");
-
+//gets the words / index information and displays it in an order specified
+//in this case it goes "price", "name", "details"
     for(i = 0 ; i < storeItems.length ; i++ ){
         if(storeItems[i].inStock === true){
             document.write("<div class=\"rowItem\">");
@@ -143,6 +144,3 @@ function popPage(){
     document.close();
 }
 
-// document.write(storeItems[i].name);
-
-// document.write(storeItems[i].price);
